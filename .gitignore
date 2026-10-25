@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+
+# Environment files - keep only .env.example in repo
+.env
+.env.dev
+.env.prod
+!.env.example
+
+# Builds
+dist/
+build/
+
+# Uploads
+server/uploads/*
+!server/uploads/.gitkeep
+
+# Logs
+*.log
+npm-debug.log*
+
+# Editor
+.vscode/
+.idea/
+.DS_Store
+
+# OS
+Thumbs.db
