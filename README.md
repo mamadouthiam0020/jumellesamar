@@ -143,3 +143,15 @@ Connectez-vous sur `/login`, puis accédez à `/admin`.
 - Protection des routes admin (`protect` + `admin` middleware)
 - Variables d'environnement séparées dev/prod
 - `.env.*` ignorés par git (voir `.env.example`)
+
+## Déploiement sur Render
+
+Le fichier `render.yaml` décrit le service web (build, start, health check et variables d'environnement).
+
+1. Sur Render : **New → Blueprint**, connecter le dépôt `mamadouthiam0020/jumellesamar`.
+2. Renseigner les variables demandées : `MONGODB_URI`, `CORS_ORIGIN`, `CLOUDINARY_*` et `ADMIN_PASSWORD`. `JWT_SECRET` est généré automatiquement.
+3. Déployer : le build exécute `npm ci --include=dev && npm run build`, puis `npm run start` démarre Express qui sert l'API et le client compilé.
+4. `CORS_ORIGIN` doit correspondre à l'URL publique Render (ex. `https://jumelles-amar.onrender.com`).
+5. Health check : `GET /api/health`.
+
+Pour un service existant : Settings → Build & Deploy → Repository = `mamadouthiam0020/jumellesamar`, Build Command = `npm ci --include=dev && npm run build`, Start Command = `npm run start`, puis recréer les variables d'environnement (les fichiers `.env.*` ne sont pas versionnés).

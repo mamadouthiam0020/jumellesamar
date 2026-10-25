@@ -30,6 +30,10 @@ app.use(express.urlencoded({ extended: true }));
 
 const fs = require('fs');
 
+app.get('/api/health', (req, res) => {
+  res.status(200).json({ status: 'ok', uptime: process.uptime() });
+});
+
 app.get('/api', (req, res) => {
   res.json({
     message: 'Bienvenue sur l\'API Jumelles Amar',
