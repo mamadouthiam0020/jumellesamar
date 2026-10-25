@@ -69,6 +69,10 @@ app.use(errorHandler);
 
 const start = async () => {
   try {
+    if (!process.env.JWT_SECRET) {
+      console.warn('[Env] JWT_SECRET manquante : les connexions échoueront.');
+    }
+
     await connectDB();
     await bootstrapAdmin();
 

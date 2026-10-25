@@ -155,3 +155,5 @@ Le fichier `render.yaml` décrit le service web (build, start, health check et v
 5. Health check : `GET /api/health`.
 
 Pour un service existant : Settings → Build & Deploy → Repository = `mamadouthiam0020/jumellesamar`, Build Command = `npm ci --include=dev && npm run build`, Start Command = `npm run start`, puis recréer les variables d'environnement (les fichiers `.env.*` ne sont pas versionnés).
+
+> **Erreur `The uri parameter to openUri() must be a string, got "undefined"`** : `MONGODB_URI` n'est pas définie sur Render. Ajoutez-la dans **Environment** (valeur = chaîne complète `mongodb+srv://...`) puis relancez un déploiement.
