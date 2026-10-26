@@ -28,24 +28,24 @@ const values = [
 
 const timeline = [
   {
-    year: '2008',
+    year: '2020',
     title: 'La naissance',
-    description: 'Jumelles Amar voit le jour dans un petit atelier, animé par une passion dévorante pour la couture.',
+    description: 'Jumelles Amar voit le jour dans un petit atelier à Dakar, animé par une passion dévorante pour la couture.',
   },
   {
-    year: '2014',
+    year: '2022',
     title: 'La reconnaissance',
     description: 'Première grande distinction lors d\'un concours national de haute couture.',
   },
   {
-    year: '2019',
+    year: '2024',
     title: 'L\'expansion',
     description: 'Ouverture de la maison phare et agrandissement de l\'atelier de fabrication.',
   },
   {
-    year: '2024',
+    year: '2026',
     title: 'L\u2019international',
-    description: 'La maison représente fièrement le Bénin sur la scène internationale de la mode.',
+    description: 'La maison représente fièrement le Sénégal sur la scène internationale de la mode.',
   },
 ];
 
@@ -77,8 +77,8 @@ export default function About() {
             <div className="metal-hairline mb-6" />
             <div className="space-y-5 text-ivory/60 leading-relaxed">
               <p>
-                Née il y a près de deux décennies d'une passion dévorante pour la couture,
-                Jumelles Amar s'est imposée comme une référence de la haute couture.
+                Née il y a six ans d'une passion dévorante pour la couture,
+                Jumelles Amar s'est imposée comme une référence de la haute couture à Dakar.
               </p>
               <p>
                 Notre maison incarne l'alliance subtile entre un savoir-faire ancestral
@@ -101,9 +101,9 @@ export default function About() {
               />
             </div>
             <div className="absolute -bottom-8 -left-4 md:-left-8 bg-noir-light border border-platine/30 p-6 backdrop-blur">
-              <p className="font-serifDisplay text-4xl text-gradient-metal">20+</p>
+              <p className="font-serifDisplay text-4xl text-gradient-metal">6</p>
               <p className="text-xs uppercase tracking-widest text-ivory/60 mt-1">
-                Artisans passionnés
+                Années d'expérience
               </p>
             </div>
           </motion.div>

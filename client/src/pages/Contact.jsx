@@ -54,7 +54,7 @@ export default function Contact() {
     {
       icon: <FiPhone className="w-5 h-5" />,
       title: 'Téléphone',
-      value: '+229 97 00 00 00',
+      value: '+221 77 732 74 74',
     },
     {
       icon: <FiMail className="w-5 h-5" />,
@@ -64,7 +64,7 @@ export default function Contact() {
     {
       icon: <FiMapPin className="w-5 h-5" />,
       title: 'Adresse',
-      value: 'Cotonou, Bénin',
+      value: 'Parcelles Assainies U21, Dakar, Sénégal',
     },
     {
       icon: <FiClock className="w-5 h-5" />,
@@ -158,7 +158,7 @@ export default function Contact() {
                   value={form.phone}
                   onChange={handleChange}
                   className="input-luxury"
-                  placeholder="+229 ..."
+                  placeholder="+221 ..."
                 />
               </div>
               <div>

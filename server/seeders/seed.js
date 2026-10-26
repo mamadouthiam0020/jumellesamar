@@ -38,15 +38,15 @@ const seed = async () => {
         email: process.env.ADMIN_EMAIL || 'admin@jumellesamar.com',
         password: process.env.ADMIN_PASSWORD || 'adminJumelles2024!',
         role: 'admin',
-        phone: '+229 97 00 00 00',
+        phone: '+221 77 732 74 74',
       },
       {
         name: 'Client Test',
         email: 'client@test.com',
         password: 'client123',
         role: 'client',
-        phone: '+229 91 00 00 00',
-        address: 'Cotonou, Bénin',
+        phone: '+221 77 000 00 00',
+        address: 'Parcelles Assainies U21, Dakar, Sénégal',
       },
     ]);
 
@@ -112,7 +112,7 @@ const seed = async () => {
         title: 'Jumelles Amar dévoile sa collection Éclat de Soie 2026',
         excerpt: 'Une collection qui marie la soie la plus pure à un savoir-faire artisanal exceptionnel.',
         content:
-          "C'est avec une fierté immense que Jumelles Amar présente sa nouvelle collection « Éclat de Soie ». Cette collection marque un tournant dans l'histoire de la maison, avec des pièces d'une audace et d'un raffinement sans précédent.\n\nLes dix robes présentées représentent plus de 400 heures de travail collectif de nos artisans. La soie sauvage, importée de nos partenaires asiatiques, est travaillée localement dans notre atelier de Cotonou.\n\nVenez découvrir cette collection lors de notre défilé privé qui se tiendra le mois prochain.",
+          "C'est avec une fierté immense que Jumelles Amar présente sa nouvelle collection « Éclat de Soie ». Cette collection marque un tournant dans l'histoire de la maison, avec des pièces d'une audace et d'un raffinement sans précédent.\n\nLes dix robes présentées représentent plus de 400 heures de travail collectif de nos artisans. La soie sauvage, importée de nos partenaires asiatiques, est travaillée localement dans notre atelier de Dakar.\n\nVenez découvrir cette collection lors de notre défilé privé qui se tiendra le mois prochain.",
         coverImage: placeholders.news,
         category: 'Nouveauté',
         tags: ['collection', '2026', 'soie'],
@@ -132,9 +132,9 @@ const seed = async () => {
       },
       {
         title: 'Jumelles Amar au salon international de la mode',
-        excerpt: 'La maison représentera le Bénin au prestigieux salon international de la mode.',
+        excerpt: 'La maison représentera le Sénégal au prestigieux salon international de la mode.',
         content:
-          "C'est un immense honneur d'annoncer que Jumelles Amar représentera le Bénin lors de la prochaine édition du salon international de la mode.\n\nCet événement sera l'occasion de présenter notre savoir-faire à un public international et de nouer des partenariats précieux pour le développement de la mode africaine.",
+          "C'est un immense honneur d'annoncer que Jumelles Amar représentera le Sénégal lors de la prochaine édition du salon international de la mode.\n\nCet événement sera l'occasion de présenter notre savoir-faire à un public international et de nouer des partenariats précieux pour le développement de la mode africaine.",
         coverImage: placeholders.news,
         category: 'Événement',
         tags: ['événement', 'international', 'mode'],
@@ -151,7 +151,7 @@ const seed = async () => {
     await Contact.create({
       name: 'Aïcha M.',
       email: 'aicha@example.com',
-      phone: '+229 96 00 00 00',
+      phone: '+221 76 000 00 00',
       type: 'rendez-vous',
       subject: 'Essayage robe de mariée',
       message: "Bonjour, je souhaiterais prendre rendez-vous pour un essayage de robes de mariée le mois prochain.",

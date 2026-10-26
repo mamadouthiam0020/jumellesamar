@@ -71,7 +71,7 @@ export default function Footer() {
             <ul className="space-y-3 text-sm text-ivory/60">
               <li className="flex items-center gap-3">
                 <FiPhone className="text-platine w-4 h-4" />
-                +229 97 00 00 00
+                +221 77 732 74 74
               </li>
               <li className="flex items-center gap-3">
                 <FiMail className="text-platine w-4 h-4" />
@@ -79,7 +79,7 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-3">
                 <FiMapPin className="text-platine w-4 h-4" />
-                Cotonou, Bénin
+                Parcelles Assainies U21, Dakar, Sénégal
               </li>
             </ul>
           </div>

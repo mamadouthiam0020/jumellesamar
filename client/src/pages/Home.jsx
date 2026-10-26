@@ -143,26 +143,6 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* MARQUEE */}
-      <section className="bg-noir-light border-y border-platine/20 py-6 overflow-hidden">
-        <div className="flex whitespace-nowrap animate-shimmer">
-          {[...Array(2)].map((_, i) => (
-            <div key={i} className="flex items-center gap-8 px-4">
-              {['Haute Couture', 'Sur-Mesure', 'Savoir-Faire', 'Élégance', 'Tradition', 'Excellence'].map(
-                (word) => (
-                  <span key={word} className="flex items-center gap-8">
-                    <span className="font-serifDisplay italic text-xl md:text-2xl text-ivory/60">
-                      {word}
-                    </span>
-                    <span className="text-platine text-2xl">✦</span>
-                  </span>
-                )
-              )}
-            </div>
-          ))}
-        </div>
-      </section>
-
       {/* ABOUT PREVIEW */}
       <section className="py-24 max-w-7xl mx-auto px-6">
         <motion.div
@@ -184,7 +164,7 @@ export default function Home() {
               variants={scaleIn}
               className="absolute -bottom-8 -right-4 md:-right-8 bg-noir-light border border-platine/30 p-6 backdrop-blur"
             >
-              <p className="font-serifDisplay text-4xl text-gradient-metal">15+</p>
+              <p className="font-serifDisplay text-4xl text-gradient-metal">6</p>
               <p className="text-xs uppercase tracking-widest text-ivory/60 mt-1">
                 Années de savoir-faire
               </p>

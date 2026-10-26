@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { FaWhatsapp } from 'react-icons/fa';
 
-const WHATSAPP_NUMBER = '22997000000';
+const WHATSAPP_NUMBER = '221777327474';
 const WHATSAPP_MESSAGE = encodeURIComponent(
   'Bonjour Jumelles Amar, je souhaite avoir plus d’informations sur vos créations.'
 );

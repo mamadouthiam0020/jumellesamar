@@ -208,7 +208,7 @@ export default function Profile() {
                       value={form.phone}
                       onChange={handleChange}
                       className="input-luxury"
-                      placeholder="+229 ..."
+                      placeholder="+221 ..."
                     />
                   </div>
                   <div>
