@@ -45,18 +45,6 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  const register = async (userData) => {
-    setLoading(true);
-    try {
-      const { data } = await api.post('/auth/register', userData);
-      setToken(data.token);
-      setStoredUser(data);
-      return data;
-    } finally {
-      setLoading(false);
-    }
-  };
-
   const logout = useCallback(() => {
     localStorage.removeItem('jumelles_amar_token');
     localStorage.removeItem('jumelles_amar_user');
@@ -129,7 +117,6 @@ export const AuthProvider = ({ children }) => {
         user,
         loading,
         login,
-        register,
         logout,
         refreshProfile,
         updateProfile,
