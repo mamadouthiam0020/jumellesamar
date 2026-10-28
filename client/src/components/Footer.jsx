@@ -53,6 +53,7 @@ export default function Footer() {
               <li><Link to="/actualites" className="text-ivory/60 hover:text-ivory transition-colors text-sm">Actualités</Link></li>
               <li><Link to="/a-propos" className="text-ivory/60 hover:text-ivory transition-colors text-sm">À Propos</Link></li>
               <li><Link to="/contact" className="text-ivory/60 hover:text-ivory transition-colors text-sm">Contact</Link></li>
+              <li><Link to="/login" className="text-ivory/40 hover:text-ivory/70 transition-colors text-sm">Espace Admin</Link></li>
             </ul>
           </div>
 

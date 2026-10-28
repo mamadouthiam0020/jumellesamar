@@ -81,9 +81,10 @@ export default function Navbar() {
               {isAdmin && (
                 <NavLink
                   to="/admin"
-                  className="nav-item"
+                  className="nav-item flex items-center gap-2"
                 >
-                  Admin
+                  <FiGrid className="w-4 h-4" />
+                  Espace Admin
                 </NavLink>
               )}
               <button
@@ -94,17 +95,7 @@ export default function Navbar() {
                 <FiLogOut className="w-5 h-5" />
               </button>
             </div>
-          ) : (
-            <div className="flex items-center gap-5">
-              <Link to="/login" className="nav-item flex items-center gap-2">
-                <FiUser className="w-4 h-4" />
-                Se connecter
-              </Link>
-              <Link to="/register" className="btn-metal !py-2 !px-5 text-[11px]">
-                S'inscrire
-              </Link>
-            </div>
-          )}
+          ) : null}
         </div>
       </div>
     </header>
