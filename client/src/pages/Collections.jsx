@@ -6,6 +6,7 @@ import PageHeader from '../components/PageHeader';
 import CollectionCard from '../components/CollectionCard';
 import Loading from '../components/Loading';
 import { fadeIn } from '../utils/motion';
+import { pageImages } from '../utils/images';
 
 const categories = ['Toutes', 'Robes', 'Tenues Hommes', 'Accessoires', 'Sur-Mesure', 'Mariage'];
 
@@ -42,7 +43,7 @@ export default function Collections() {
       <PageHeader
         title="Nos Collections"
         subtitle="Des créations uniques, pensées et façonnées à la main dans notre atelier."
-        image="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Boubou_homme.jpg/1920px-Boubou_homme.jpg"
+        image={pageImages.collections}
       />
 
       <section className="py-16 max-w-7xl mx-auto px-6">

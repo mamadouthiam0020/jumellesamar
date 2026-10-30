@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { FiUser, FiLogOut, FiHome, FiGrid, FiFileText, FiInfo, FiMail } from 'react-icons/fi';
 import { useAuth } from '../context/AuthContext';
+import { useTheme } from '../context/ThemeContext';
+import ThemeToggle from './ThemeToggle';
 
 const navLinks = [
   { to: '/', label: 'Accueil' },
@@ -22,7 +24,9 @@ const mobileIcons = {
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const { user, isAdmin, logout } = useAuth();
+  const { theme } = useTheme();
   const navigate = useNavigate();
+  const logoSrc = theme === 'light' ? '/assets/logo-noir.png' : '/assets/logo-blanc.png';
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -38,13 +42,15 @@ export default function Navbar() {
   return (
     <header
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${
-        scrolled ? 'bg-noir/95 backdrop-blur-md shadow-lg py-3' : 'bg-transparent py-6'
+        scrolled
+          ? 'bg-noir/95 backdrop-blur-md shadow-lg py-3'
+          : 'bg-noir/60 backdrop-blur-sm py-4'
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         <Link to="/" className="group z-50 flex items-center gap-3">
           <img
-            src="/assets/logo-blanc.png"
+            src={logoSrc}
             alt="Jumelles Amar"
             className="h-10 w-auto opacity-90 transition-opacity duration-300 group-hover:opacity-100"
           />
@@ -71,31 +77,34 @@ export default function Navbar() {
           ))}
         </nav>
 
-        <div className="hidden lg:flex items-center space-x-6">
-          {user ? (
-            <div className="flex items-center space-x-4">
-              <NavLink to="/profil" className="nav-item flex items-center gap-2">
-                <FiUser className="w-4 h-4" />
-                {user?.name?.split(' ')[0] || 'Profil'}
-              </NavLink>
-              {isAdmin && (
-                <NavLink
-                  to="/admin"
-                  className="nav-item flex items-center gap-2"
-                >
-                  <FiGrid className="w-4 h-4" />
-                  Espace Admin
+        <div className="flex items-center gap-4">
+          <div className="hidden lg:flex items-center space-x-6">
+            {user ? (
+              <div className="flex items-center space-x-4">
+                <NavLink to="/profil" className="nav-item flex items-center gap-2">
+                  <FiUser className="w-4 h-4" />
+                  {user?.name?.split(' ')[0] || 'Profil'}
                 </NavLink>
-              )}
-              <button
-                onClick={handleLogout}
-                className="text-ivory/70 hover:text-platine transition-colors"
-                title="Déconnexion"
-              >
-                <FiLogOut className="w-5 h-5" />
-              </button>
-            </div>
-          ) : null}
+                {isAdmin && (
+                  <NavLink
+                    to="/admin"
+                    className="nav-item flex items-center gap-2"
+                  >
+                    <FiGrid className="w-4 h-4" />
+                    Espace Admin
+                  </NavLink>
+                )}
+                <button
+                  onClick={handleLogout}
+                  className="text-ivory/70 hover:text-platine transition-colors"
+                  title="Déconnexion"
+                >
+                  <FiLogOut className="w-5 h-5" />
+                </button>
+              </div>
+            ) : null}
+          </div>
+          <ThemeToggle />
         </div>
       </div>
     </header>

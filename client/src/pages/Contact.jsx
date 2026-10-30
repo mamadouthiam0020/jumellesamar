@@ -4,6 +4,7 @@ import toast from 'react-hot-toast';
 import api from '../utils/api';
 import PageHeader from '../components/PageHeader';
 import { fadeInUp, viewportOnce, staggerContainer } from '../utils/motion';
+import { pageImages } from '../utils/images';
 import { FiMail, FiPhone, FiMapPin, FiClock } from 'react-icons/fi';
 
 export default function Contact() {
@@ -78,7 +79,7 @@ export default function Contact() {
       <PageHeader
         title="Contact & Rendez-vous"
         subtitle="Parlons de votre projet. Notre équipe vous répond sous 24h."
-        image="https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Boubou_en_basin_avec_broderie.png/1280px-Boubou_en_basin_avec_broderie.png"
+        image={pageImages.contact}
       />
 
       <section className="py-20 max-w-7xl mx-auto px-6">

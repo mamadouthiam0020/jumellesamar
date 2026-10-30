@@ -139,7 +139,7 @@ export default function Profile() {
                   logout();
                   navigate('/');
                 }}
-                className="btn-outline !py-2 !text-red-400/80 hover:!border-red-400/50"
+                className="btn-outline !py-2 text-red-400 hover:!border-red-400/50"
               >
                 <FiLogOut /> Déconnexion
               </button>

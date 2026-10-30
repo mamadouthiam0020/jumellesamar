@@ -10,13 +10,18 @@ const News = require('../models/News');
 const Contact = require('../models/Contact');
 const { generateSlug } = require('../utils/helpers');
 
+const assets = Array.from(
+  { length: 16 },
+  (_, i) => `/assets/collection-${String(i + 1).padStart(2, '0')}.jpeg`
+);
+
 const placeholders = {
-  hero: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Boubou_homme.jpg/1920px-Boubou_homme.jpg',
-  dress: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Boubou_en_ndop.jpg/1920px-Boubou_en_ndop.jpg',
-  suit: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Boubou_traditionnel_du_S%C3%A9n%C3%A9gal.jpg/1280px-Boubou_traditionnel_du_S%C3%A9n%C3%A9gal.jpg',
-  accessory: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Boubou_Ivoirien.jpg/1920px-Boubou_Ivoirien.jpg',
-  news: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Boubou_-_MCN_4232.jpg/1920px-Boubou_-_MCN_4232.jpg',
-  atelier: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Boubou_en_basin_avec_broderie.png/1280px-Boubou_en_basin_avec_broderie.png',
+  hero: assets[0],
+  dress: assets[1],
+  suit: assets[2],
+  accessory: assets[3],
+  news: assets[4],
+  atelier: assets[5],
 };
 
 const seed = async () => {
@@ -58,8 +63,8 @@ const seed = async () => {
         longDescription:
           "La collection Éclat de Soie rend hommage au tissu le plus noble qui soit. Chaque pièce est coupée dans une soie sauvage soigneusement sélectionnée puis drapée à la main dans notre atelier. Les coupes fluides épousent le corps avec une légèreté incomparable.\n\nChaque robe représente plus de 40 heures de travail artisanal.",
         category: 'Robes',
-        coverImage: placeholders.hero,
-        images: [placeholders.hero, placeholders.dress],
+        coverImage: assets[0],
+        images: [assets[0], assets[4], assets[5]],
         featured: true,
         year: 2026,
         designerNote: 'Conçue pour la femme qui veut briller sans en faire trop.',
@@ -70,8 +75,8 @@ const seed = async () => {
         longDescription:
           'Chaque robe de mariée est une pièce unique, façonnée selon les rêves et l\'histoire de chaque mariée. De la première esquisse à la dernière couture, notre équipe accompagne la future mariée tout au long d\'un parcours d\'exception.',
         category: 'Mariage',
-        coverImage: placeholders.dress,
-        images: [placeholders.dress, placeholders.hero],
+        coverImage: assets[1],
+        images: [assets[1], assets[6], assets[7]],
         featured: true,
         year: 2026,
         designerNote: 'Une robe de princesse moderne, légère et dansante.',
@@ -82,8 +87,8 @@ const seed = async () => {
         longDescription:
           'Le sur-mesure masculin selon Jumelles Amar : une silhouette nette, des épaules travaillées, une finition irréprochable. Chaque costume est construit autour de votre morphologie unique.',
         category: 'Tenues Hommes',
-        coverImage: placeholders.suit,
-        images: [placeholders.suit],
+        coverImage: assets[2],
+        images: [assets[2], assets[8], assets[9]],
         featured: false,
         year: 2025,
         designerNote: "Le costume n'habille pas l'homme, il le révèle.",
@@ -94,11 +99,23 @@ const seed = async () => {
         longDescription:
           'La collection Nuit d\'Ivoire célèbre l\'élégance des grandes occasions. Des matières nobles, des coupes cinématiques, des détails qui font la différence.',
         category: 'Tenues Hommes',
-        coverImage: placeholders.suit,
-        images: [placeholders.suit, placeholders.accessory],
+        coverImage: assets[3],
+        images: [assets[3], assets[10], assets[11]],
         featured: false,
         year: 2025,
         designerNote: 'La sophistication dans le détail.',
+      },
+      {
+        title: 'Accessoires Précieux',
+        description: 'Sacs, bijoux et parures façonnés à la main pour parachever chaque silhouette.',
+        longDescription:
+          'La collection Accessoires Précieux rassemble des pièces réalisées en petites séries dans notre atelier. Chaque accessoire est pensé comme le détail qui révèle une tenue et prolonge l\'élégance Jumelles Amar.',
+        category: 'Accessoires',
+        coverImage: assets[12],
+        images: [assets[12], assets[13], assets[14], assets[15]],
+        featured: false,
+        year: 2026,
+        designerNote: 'Le détail qui change tout.',
       },
     ];
 
@@ -135,7 +152,7 @@ const seed = async () => {
         excerpt: 'La maison représentera le Sénégal au prestigieux salon international de la mode.',
         content:
           "C'est un immense honneur d'annoncer que Jumelles Amar représentera le Sénégal lors de la prochaine édition du salon international de la mode.\n\nCet événement sera l'occasion de présenter notre savoir-faire à un public international et de nouer des partenariats précieux pour le développement de la mode africaine.",
-        coverImage: placeholders.news,
+        coverImage: assets[15],
         category: 'Événement',
         tags: ['événement', 'international', 'mode'],
         featured: false,

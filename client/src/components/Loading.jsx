@@ -1,10 +1,14 @@
 import { motion } from 'framer-motion';
+import { useTheme } from '../context/ThemeContext';
 
 export default function Loading({ fullScreen = false, text = 'Chargement...' }) {
+  const { theme } = useTheme();
+  const logoSrc = theme === 'light' ? '/assets/logo-noir.png' : '/assets/logo-blanc.png';
+
   if (fullScreen) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center bg-noir">
-        <img src="/assets/logo-blanc.png" alt="" className="h-20 w-auto mb-8 opacity-80" />
+        <img src={logoSrc} alt="" className="h-20 w-auto mb-8 opacity-80" />
         <div className="flex space-x-2">
           {[0, 1, 2].map((i) => (
             <motion.span

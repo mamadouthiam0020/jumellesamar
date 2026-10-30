@@ -8,6 +8,7 @@ import CollectionCard from '../components/CollectionCard';
 import NewsCard from '../components/NewsCard';
 import Loading from '../components/Loading';
 import { fadeIn, fadeInUp, staggerContainer, viewportOnce, scaleIn } from '../utils/motion';
+import { collectionImages, heroImages, pageImages } from '../utils/images';
 
 const scaleFrame = {
   hidden: { opacity: 0, scale: 0.8 },
@@ -17,12 +18,6 @@ const scaleFrame = {
     transition: { duration: 0.6, delay: 0.3 },
   },
 };
-
-const heroImages = [
-  'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Boubou_homme.jpg/1920px-Boubou_homme.jpg',
-  'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Boubou_en_ndop.jpg/1920px-Boubou_en_ndop.jpg',
-  'https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Boubou_-_MCN_4232.jpg/1920px-Boubou_-_MCN_4232.jpg',
-];
 
 export default function Home() {
   const [collections, setCollections] = useState([]);
@@ -58,7 +53,7 @@ export default function Home() {
   return (
     <div>
       {/* HERO */}
-      <section className="relative h-screen overflow-hidden">
+      <section className="on-dark relative h-screen overflow-hidden bg-black">
         <AnimatePresence>
           <motion.div
             key={heroIndex}
@@ -71,12 +66,13 @@ export default function Home() {
             <img
               src={heroImages[heroIndex]}
               alt="Jumelles Amar"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover object-[center_28%]"
             />
           </motion.div>
         </AnimatePresence>
-        <div className="absolute inset-0 bg-noir/60" />
-        <div className="absolute inset-0 bg-gradient-to-b from-noir/40 via-transparent to-noir" />
+        <div className="absolute inset-0 bg-black/55" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/25 to-black/90" />
+        <div className="pointer-events-none absolute inset-4 md:inset-8 z-[5] border border-white/15" />
 
         <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6">
           <motion.h1
@@ -84,7 +80,7 @@ export default function Home() {
             initial="hidden"
             animate="visible"
             transition={{ delay: 0.2 }}
-            className="font-serifDisplay text-4xl md:text-7xl lg:text-8xl text-ivory leading-tight mb-6"
+            className="font-serifDisplay text-4xl md:text-7xl lg:text-8xl text-white leading-tight mb-6 drop-shadow-[0_2px_20px_rgba(0,0,0,0.45)]"
           >
             L'Élégance
             <br />
@@ -104,7 +100,7 @@ export default function Home() {
             initial="hidden"
             animate="visible"
             transition={{ delay: 0.5 }}
-            className="max-w-xl text-ivory/70 leading-relaxed mb-10"
+            className="max-w-xl text-white/70 leading-relaxed mb-10"
           >
             Découvrez des créations uniques façonnées à la main dans notre atelier.
             Chaque pièce raconte une histoire, chaque couture est un héritage.
@@ -134,9 +130,9 @@ export default function Home() {
           transition={{ delay: 1.5 }}
           className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center"
         >
-          <span className="text-[10px] uppercase tracking-widest text-ivory/50 mb-2">Scroll</span>
+          <span className="text-[10px] uppercase tracking-widest text-white/50 mb-2">Scroll</span>
           <motion.div
-            className="w-px h-16 bg-gradient-to-b from-platine to-transparent"
+            className="w-px h-16 bg-gradient-to-b from-white/70 to-transparent"
             animate={{ scaleY: [0, 1, 0], originY: 0 }}
             transition={{ duration: 1.8, repeat: Infinity }}
           />
@@ -155,7 +151,7 @@ export default function Home() {
           <motion.div variants={fadeIn} className="relative">
             <div className="overflow-hidden aspect-[3/4]">
               <img
-                src={heroImages[1]}
+                src={pageImages.atelier}
                 alt="Atelier Jumelles Amar"
                 className="w-full h-full object-cover"
               />
@@ -220,14 +216,44 @@ export default function Home() {
         </div>
       </section>
 
+      {/* LOOKBOOK */}
+      <section className="py-24 max-w-7xl mx-auto px-6">
+        <SectionHeading
+          eyebrow="Lookbook"
+          title="Nos Créations en Images"
+          subtitle="Un aperçu de nos silhouettes signature, façonnées une à une dans notre atelier."
+        />
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          {collectionImages.map((image, i) => (
+            <motion.div
+              key={image}
+              variants={fadeInUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={viewportOnce}
+              className="group relative overflow-hidden aspect-[3/4]"
+            >
+              <img
+                src={image}
+                alt={`Création Jumelles Amar ${i + 1}`}
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
       {/* CTA */}
-      <section className="relative py-28 overflow-hidden">
+      <section className="on-dark relative py-28 overflow-hidden bg-black">
         <img
           src={heroImages[2]}
           alt=""
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover object-[center_28%]"
         />
-        <div className="absolute inset-0 bg-noir/75" />
+        <div className="absolute inset-0 bg-black/70" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/80" />
         <div className="relative z-10 max-w-3xl mx-auto text-center px-6">
           <SectionHeading
             eyebrow="Sur-Mesure"

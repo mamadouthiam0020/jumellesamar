@@ -1,25 +1,26 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+  darkMode: 'class',
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
       colors: {
         noir: {
-          DEFAULT: '#0A0A0A',
-          light: '#141414',
-          lighter: '#1E1E1E',
+          DEFAULT: 'rgb(var(--color-noir) / <alpha-value>)',
+          light: 'rgb(var(--color-noir-light) / <alpha-value>)',
+          lighter: 'rgb(var(--color-noir-lighter) / <alpha-value>)',
         },
         platine: {
-          DEFAULT: '#E8E8E8',
-          light: '#FFFFFF',
-          dark: '#A8A8A8',
+          DEFAULT: 'rgb(var(--color-platine) / <alpha-value>)',
+          light: 'rgb(var(--color-platine-light) / <alpha-value>)',
+          dark: 'rgb(var(--color-platine-dark) / <alpha-value>)',
         },
         ivory: {
-          DEFAULT: '#F5F5F5',
-          dark: '#E6E6E6',
+          DEFAULT: 'rgb(var(--color-ivory) / <alpha-value>)',
+          dark: 'rgb(var(--color-ivory-dark) / <alpha-value>)',
         },
-        graphite: '#2B2B2B',
-        argent: '#B8B8B8',
+        graphite: 'rgb(var(--color-graphite) / <alpha-value>)',
+        argent: 'rgb(var(--color-argent) / <alpha-value>)',
       },
       fontFamily: {
         serifDisplay: ['"Playfair Display"', 'Georgia', 'serif'],

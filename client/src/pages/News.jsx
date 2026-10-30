@@ -6,6 +6,7 @@ import PageHeader from '../components/PageHeader';
 import NewsCard from '../components/NewsCard';
 import Loading from '../components/Loading';
 import { fadeIn } from '../utils/motion';
+import { pageImages } from '../utils/images';
 
 const categories = ['Toutes', 'Mode', 'Événement', 'Coulisses', 'Nouveauté', 'Presse'];
 
@@ -46,7 +47,7 @@ export default function News() {
       <PageHeader
         title="Actualités"
         subtitle="Suivez la vie de la maison Jumelles Amar."
-        image="https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Boubou_-_MCN_4232.jpg/1920px-Boubou_-_MCN_4232.jpg"
+        image={pageImages.news}
       />
 
       <section className="py-16 max-w-7xl mx-auto px-6">

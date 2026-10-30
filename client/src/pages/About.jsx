@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import PageHeader from '../components/PageHeader';
 import { fadeInUp, viewportOnce, staggerContainer } from '../utils/motion';
+import { pageImages } from '../utils/images';
 
 const values = [
   {
@@ -55,7 +56,7 @@ export default function About() {
       <PageHeader
         title="Notre Histoire"
         subtitle="La maison Jumelles Amar, une passion transformée en héritage."
-        image="https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Boubou_Ivoirien.jpg/1920px-Boubou_Ivoirien.jpg"
+        image={pageImages.about}
       />
 
       {/* Story */}
@@ -95,7 +96,7 @@ export default function About() {
           <motion.div variants={fadeInUp} className="relative">
             <div className="overflow-hidden aspect-[3/4]">
               <img
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Boubou_traditionnel_du_S%C3%A9n%C3%A9gal.jpg/1280px-Boubou_traditionnel_du_S%C3%A9n%C3%A9gal.jpg"
+                src={pageImages.atelier}
                 alt="Atelier"
                 className="w-full h-full object-cover"
               />

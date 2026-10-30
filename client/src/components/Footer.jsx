@@ -1,7 +1,11 @@
 import { Link } from 'react-router-dom';
 import { FiMail, FiPhone, FiMapPin, FiInstagram, FiFacebook } from 'react-icons/fi';
+import { useTheme } from '../context/ThemeContext';
 
 export default function Footer() {
+  const { theme } = useTheme();
+  const logoSrc = theme === 'light' ? '/assets/logo-noir.png' : '/assets/logo-blanc.png';
+
   return (
     <footer className="bg-noir-light border-t border-platine/20 mt-24">
       <div className="max-w-7xl mx-auto px-6 py-16">
@@ -9,7 +13,7 @@ export default function Footer() {
           <div>
             <Link to="/" className="mb-4 inline-flex items-center gap-3 group">
               <img
-                src="/assets/logo-blanc.png"
+                src={logoSrc}
                 alt="Jumelles Amar"
                 className="h-14 w-auto opacity-90 transition-opacity duration-300 group-hover:opacity-100"
               />
