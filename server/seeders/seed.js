@@ -51,7 +51,7 @@ const seed = async () => {
         password: 'client123',
         role: 'client',
         phone: '+221 77 000 00 00',
-        address: 'Parcelles Assainies U21, Dakar, Sénégal',
+        address: 'Parcelle U 20 Villa N° 289, Dakar, Sénégal',
       },
     ]);
 

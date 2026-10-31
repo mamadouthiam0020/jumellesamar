@@ -55,7 +55,7 @@ export default function Contact() {
     {
       icon: <FiPhone className="w-5 h-5" />,
       title: 'Téléphone',
-      value: '+221 77 732 74 74',
+      value: ['+221 77 732 74 74', '+221 77 933 15 48'],
     },
     {
       icon: <FiMail className="w-5 h-5" />,
@@ -65,7 +65,7 @@ export default function Contact() {
     {
       icon: <FiMapPin className="w-5 h-5" />,
       title: 'Adresse',
-      value: 'Parcelles Assainies U21, Dakar, Sénégal',
+      value: 'Parcelle U 20 Villa N° 289, Dakar, Sénégal',
     },
     {
       icon: <FiClock className="w-5 h-5" />,
@@ -99,7 +99,19 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="text-xs uppercase tracking-widest text-ivory/50 mb-1">{item.title}</p>
-                  <p className="text-ivory">{item.value}</p>
+                  {Array.isArray(item.value) ? (
+                    item.value.map((value) => (
+                      <a
+                        key={value}
+                        href={`tel:${value.replace(/\s/g, '')}`}
+                        className="block text-ivory hover:text-platine transition-colors"
+                      >
+                        {value}
+                      </a>
+                    ))
+                  ) : (
+                    <p className="text-ivory">{item.value}</p>
+                  )}
                 </div>
               </motion.div>
             ))}

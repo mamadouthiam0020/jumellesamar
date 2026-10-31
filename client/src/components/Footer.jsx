@@ -30,7 +30,7 @@ export default function Footer() {
             </p>
             <div className="flex space-x-4 mt-6">
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/jumelles_amar?obrf=YXdwbGtwcWEwaWVy"
                 target="_blank"
                 rel="noreferrer"
                 className="text-ivory/50 hover:text-platine transition-colors"
@@ -74,9 +74,16 @@ export default function Footer() {
           <div>
             <h4 className="text-sm uppercase tracking-widest text-platine mb-4">Contact</h4>
             <ul className="space-y-3 text-sm text-ivory/60">
-              <li className="flex items-center gap-3">
-                <FiPhone className="text-platine w-4 h-4" />
-                +221 77 732 74 74
+              <li className="flex items-start gap-3">
+                <FiPhone className="text-platine w-4 h-4 mt-0.5" />
+                <span className="flex flex-col gap-1">
+                  <a href="tel:+221777327474" className="hover:text-ivory transition-colors">
+                    +221 77 732 74 74
+                  </a>
+                  <a href="tel:+221779331548" className="hover:text-ivory transition-colors">
+                    +221 77 933 15 48
+                  </a>
+                </span>
               </li>
               <li className="flex items-center gap-3">
                 <FiMail className="text-platine w-4 h-4" />
@@ -84,7 +91,7 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-3">
                 <FiMapPin className="text-platine w-4 h-4" />
-                Parcelles Assainies U21, Dakar, Sénégal
+                Parcelle U 20 Villa N° 289, Dakar, Sénégal
               </li>
             </ul>
           </div>
