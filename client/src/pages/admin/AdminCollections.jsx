@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import toast from 'react-hot-toast';
-import { FiEdit, FiTrash2, FiPlus, FiX, FiStar } from 'react-icons/fi';
+import { FiEdit, FiTrash2, FiPlus, FiX, FiStar, FiUpload } from 'react-icons/fi';
 import api from '../../utils/api';
 import Loading from '../../components/Loading';
 import { AdminFormField, inputCls } from './ui';
@@ -27,6 +27,7 @@ export default function AdminCollections() {
   const [editing, setEditing] = useState(null);
   const [form, setForm] = useState(emptyForm);
   const [imageUrl, setImageUrl] = useState('');
+  const [uploading, setUploading] = useState(false);
 
   const load = async () => {
     setLoading(true);
@@ -94,6 +95,34 @@ export default function AdminCollections() {
         coverImage: prev.coverImage === removed ? (images[0] || '') : prev.coverImage,
       };
     });
+  };
+
+  const handleFiles = async (e) => {
+    const files = Array.from(e.target.files || []);
+    if (files.length === 0) return;
+
+    const formData = new FormData();
+    files.slice(0, 10).forEach((file) => formData.append('images', file));
+
+    setUploading(true);
+    try {
+      const { data } = await api.post('/upload/multiple', formData, {
+        headers: { 'Content-Type': 'multipart/form-data' },
+      });
+      const urls = (data.urls || []).map((item) => item.url).filter(Boolean);
+      if (urls.length === 0) throw new Error('Aucune image reçue');
+      setForm((prev) => ({
+        ...prev,
+        images: [...prev.images, ...urls],
+        coverImage: prev.coverImage || urls[0],
+      }));
+      toast.success(`${urls.length} photo(s) ajoutée(s)`);
+    } catch (error) {
+      toast.error(error.response?.data?.message || "Échec du téléversement");
+    } finally {
+      setUploading(false);
+      e.target.value = '';
+    }
   };
 
   const setCover = (url) => setForm((prev) => ({ ...prev, coverImage: url }));
@@ -242,6 +271,24 @@ export default function AdminCollections() {
                     />
                     <button type="button" onClick={addImage} className="btn-outline !px-4 !py-2 shrink-0">Ajouter</button>
                   </div>
+
+                  <label
+                    className={`mt-3 flex items-center justify-center gap-2 px-4 py-3 border border-dashed border-ivory/25 text-xs uppercase tracking-widest transition-colors cursor-pointer ${
+                      uploading ? 'text-ivory/40 cursor-wait' : 'text-ivory/70 hover:text-platine hover:border-platine/50'
+                    }`}
+                  >
+                    <FiUpload className="w-4 h-4" />
+                    {uploading ? 'Téléversement en cours...' : 'Téléverser un groupe de photos (10 max)'}
+                    <input
+                      type="file"
+                      accept="image/*"
+                      multiple
+                      onChange={handleFiles}
+                      disabled={uploading}
+                      className="hidden"
+                    />
+                  </label>
+
                   {form.images.length > 0 && (
                     <div className="flex flex-wrap gap-3 mt-3">
                       {form.images.map((img, i) => (
