@@ -104,6 +104,18 @@ export default function Footer() {
           <p className="text-xs text-ivory/40 tracking-widest uppercase">
             Haute Couture &amp; Savoir-Faire
           </p>
+          <p className="text-xs text-ivory/40">
+            Made with <span className="text-red-500">❤️</span> by{' '}
+            <a
+              href="https://www.mounir-digital.com/"
+              target="_blank"
+              rel="noreferrer"
+              className="text-platine hover:text-ivory transition-colors"
+            >
+              Mounir
+            </a>{' '}
+            DIGITAL
+          </p>
         </div>
       </div>
     </footer>
