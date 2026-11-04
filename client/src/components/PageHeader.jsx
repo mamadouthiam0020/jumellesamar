@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion';
 import { fadeInUp } from '../utils/motion';
+import { heroImage } from '../utils/images';
 
-export default function PageHeader({ title, subtitle, image }) {
+export default function PageHeader({ title, subtitle, image = heroImage }) {
   return (
     <section className="on-dark relative pt-40 pb-24 overflow-hidden bg-black">
       {image && (

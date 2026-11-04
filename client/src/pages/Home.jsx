@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { FiArrowRight } from 'react-icons/fi';
 import api from '../utils/api';
 import SectionHeading from '../components/SectionHeading';
@@ -8,7 +8,7 @@ import CollectionCard from '../components/CollectionCard';
 import NewsCard from '../components/NewsCard';
 import Loading from '../components/Loading';
 import { fadeIn, fadeInUp, staggerContainer, viewportOnce, scaleIn } from '../utils/motion';
-import { collectionImages, heroImages, pageImages } from '../utils/images';
+import { collectionImages, heroImage, heroImages, pageImages } from '../utils/images';
 
 const scaleFrame = {
   hidden: { opacity: 0, scale: 0.8 },
@@ -23,7 +23,6 @@ export default function Home() {
   const [collections, setCollections] = useState([]);
   const [news, setNews] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [heroIndex, setHeroIndex] = useState(0);
 
   useEffect(() => {
     const loadData = async () => {
@@ -43,33 +42,22 @@ export default function Home() {
     loadData();
   }, []);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setHeroIndex((prev) => (prev + 1) % heroImages.length);
-    }, 6000);
-    return () => clearInterval(interval);
-  }, []);
-
   return (
     <div>
       {/* HERO */}
       <section className="on-dark relative h-screen overflow-hidden bg-black">
-        <AnimatePresence>
-          <motion.div
-            key={heroIndex}
-            initial={{ opacity: 0, scale: 1.05 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 1.5 }}
-            className="absolute inset-0"
-          >
-            <img
-              src={heroImages[heroIndex]}
-              alt="Jumelles Amar"
-              className="w-full h-full object-cover object-[center_28%]"
-            />
-          </motion.div>
-        </AnimatePresence>
+        <motion.div
+          initial={{ opacity: 0, scale: 1.05 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1.5 }}
+          className="absolute inset-0"
+        >
+          <img
+            src={heroImage}
+            alt="Jumelles Amar"
+            className="w-full h-full object-cover object-[center_28%]"
+          />
+        </motion.div>
         <div className="absolute inset-0 bg-black/55" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/25 to-black/90" />
         <div className="pointer-events-none absolute inset-4 md:inset-8 z-[5] border border-white/15" />
